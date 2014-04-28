@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}Nihisil - {% trans 'main_menu.home' %}{% endblock %}
+
+{% block meta %}
+    {% include 'site/parts/_site_meta.html' %}
+{% endblock %}
+
+{% block content %}
+    <div class="col-md-12">
+        <h1>{% trans 'blog.articles' %}</h1>
+
+        {% if articles %}
+            {% for article in articles %}
+                {% include 'blog/parts/_article_preview.html' %}
+            {% endfor %}
+        {% endif %}
+
+        {% if not articles%}
+            <p>{% trans 'home.coming_soon' %}</p>
+        {% endif %}
+    </div>
+{% endblock %}

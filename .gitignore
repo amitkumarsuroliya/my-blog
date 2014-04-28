@@ -1,0 +1,17 @@
+*.pyc
+*.db
+*.log
+*.swp
+
+local_settings.py
+article.txt
+complete_article.txt
+
+.idea
+.DS_Store
+.thumbs
+.env
+src
+
+media
+collected_static

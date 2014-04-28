@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{{ category.name }}{% endblock %}
+
+{% block content %}
+    <div class="col-md-12 category">
+        <h1>{{ category.name }}</h1>
+
+        <ol class="breadcrumb">
+            {% for ancestor in ancestors %}
+                {% if forloop.last %}
+                    <li class="active">{{ ancestor.name }}</li>
+                {% else %}
+                    <li><a href="{% url 'by_category' ancestor.slug %}">{{ ancestor.name }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ol>
+
+        {% if category.description %}
+            <p class="description">{{ category.description }}</p>
+        {% endif %}
+
+        {% if articles %}
+            {% for article in articles %}
+                {% include 'blog/parts/_article_preview.html' %}
+            {% endfor %}
+        {% endif %}
+
+        {% if not articles%}
+            <p>{% trans 'home.coming_soon' %}</p>
+        {% endif %}
+    </div>
+{% endblock %}

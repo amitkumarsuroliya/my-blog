@@ -1,0 +1,19 @@
+{% load i18n %}
+
+<meta name="description" content="{% trans 'blog.about.description' %}">
+<meta property="og:image" content="{{ request.build_absolute_uri }}static/img/we.jpg" />
+<meta property="og:title" content="{% trans 'blog.about.title' %}" />
+<meta property="og:description" content="{% trans 'blog.about.description' %}" />
+<meta property="og:url" content="{{ request.build_absolute_uri }}" />
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Nihisil">
+<meta name="twitter:creator" content="@Nihisil">
+<meta name="twitter:title" content="{% trans 'blog.about.title' %}">
+<meta name="twitter:description" content="{% trans 'blog.about.description' %}">
+<meta name="twitter:image:src" content="{{ request.build_absolute_uri }}static/img/we.jpg">
+
+<!-- Google+ -->
+<meta itemprop="name" content="{% trans 'blog.about.title' %}">
+<meta itemprop="description" content="{% trans 'blog.about.description' %}">
+<meta itemprop="image" content="{{ request.build_absolute_uri }}static/img/we.jpg">

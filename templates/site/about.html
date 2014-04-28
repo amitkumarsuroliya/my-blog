@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load staticfiles i18n %}
+
+{% block title %}Nihisil - {% trans 'main_menu.about' %}{% endblock %}
+
+{% block meta %}
+    {% include 'site/parts/_site_meta.html' %}
+{% endblock %}
+
+{% block content %}
+    <div class="col-md-12">
+        <h1>{% trans 'main_menu.about' %}</h1>
+        <p>{% trans 'about.text' %}</p>
+        <iframe src="https://mapsengine.google.com/map/embed?mid=zabGlKKrinTI.kahtB9DHeH1M" width="1080" height="480">
+        </iframe>
+    </div>
+{% endblock %}

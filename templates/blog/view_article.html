@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load i18n staticfiles blog_extras %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block js %}
+    {% if not DEBUG %}
+        <script type="text/javascript" src="http://vk.com/js/api/openapi.js?105"></script>
+    {% endif %}
+    <script type="text/javascript" src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".fancybox").fancybox();
+        });
+        VK.init({apiId: 4227415, onlyWidgets: true});
+    </script>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/libs/jquery.fancybox.css' %}">
+{% endblock %}
+
+{% block meta %}
+    <meta name="description" content="{{ article.preview|striptags }}">
+    {% if article.preview_image %}
+        <meta name="og:image" content="{{ article|social_share_image:request }}">
+    {% endif %}
+    <meta property="og:title" content="{{ article.title }}" />
+    <meta property="og:description" content="{{ article.preview|striptags }}" />
+    <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Nihisil">
+    <meta name="twitter:creator" content="@Nihisil">
+    <meta name="twitter:title" content="{{ article.title }}">
+    <meta name="twitter:description" content="{{ article.preview|striptags }}">
+    {% if article.preview_image %}
+        <meta name="twitter:image:src" content="{{ article.preview_image }}">
+    {% endif %}
+
+    <!-- Google+ -->
+    <meta itemprop="name" content="{{ article.title }}">
+    <meta itemprop="description" content="{{ article.preview|striptags }}">
+    {% if article.preview_image %}
+        <meta itemprop="image" content="{{ article.preview_image }}">
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="col-md-12">
+        <div class="article">
+            <h1>{{ article.title }}</h1>
+            {% include 'blog/parts/_article_header.html' %}
+
+            <div class="body">
+                {{ article.preview|safe }}
+                {{ article.body|safe }}
+
+                {% if relative_articles %}
+                    <div class="relative-articles">
+                        <hr/>
+                        <p>{{ article.category.name }}. Другие заметки:</p>
+                        <ul>
+                            {% for relative_article in relative_articles %}
+                                <li><a href="{% url 'view_article' relative_article.slug %}">{{ relative_article.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    {% if not DEBUG %}
+        <div class="col-md-12 comments">
+            <div id="vk_comments"></div>
+            <script type="text/javascript">
+                VK.Widgets.Comments("vk_comments", {limit: 15, width: "1024", attach: "*"});
+            </script>
+        </div>
+    {% endif %}
+
+{% endblock %}
