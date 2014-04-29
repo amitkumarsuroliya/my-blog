@@ -1,6 +1,6 @@
 from django.contrib import admin
 from mptt.admin import MPTTModelAdmin
-from blog.models import Article, Category
+from notes.models import Article, Category
 
 
 class ArticleAdmin(admin.ModelAdmin):

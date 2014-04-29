@@ -3,11 +3,11 @@ from django.conf.urls.i18n import i18n_patterns
 
 from django.contrib import admin
 from django.views.generic import RedirectView
-from nihisil.sitemap import ArticleSitemap, CategorySitemap, StaticViewSitemap
+from my_blog.sitemap import ArticleSitemap, CategorySitemap, StaticViewSitemap
 
 admin.autodiscover()
 
-urlpatterns = patterns('blog.views',
+urlpatterns = patterns('notes.views',
     url(r'^$', 'home', name='home'),
     url(r'^ru/$', RedirectView.as_view(url='/', permanent=True)),
     url(r'^category/(?P<category>[^/]+)/$', 'by_category', name='by_category'),

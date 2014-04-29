@@ -4,7 +4,7 @@ from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('nihisil.views',
+urlpatterns = patterns('my_blog.views',
     url(r'^about/$', 'about', name='about'),
 )
 
@@ -14,5 +14,5 @@ urlpatterns += patterns('',
 )
 
 urlpatterns += patterns('',
-    url(r'^', include('blog.urls')),
+    url(r'^', include('notes.urls')),
 )

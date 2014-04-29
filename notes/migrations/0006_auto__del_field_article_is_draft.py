@@ -8,15 +8,15 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding field 'Article.category'
-        db.add_column(u'blog_article', 'category',
-                      self.gf('django.db.models.fields.related.ForeignKey')(default=None, to=orm['blog.Category'], null=True, blank=True),
-                      keep_default=False)
+        # Deleting field 'Article.is_draft'
+        db.delete_column(u'notes_article', 'is_draft')
 
 
     def backwards(self, orm):
-        # Deleting field 'Article.category'
-        db.delete_column(u'blog_article', 'category_id')
+        # Adding field 'Article.is_draft'
+        db.add_column(u'notes_article', 'is_draft',
+                      self.gf('django.db.models.fields.BooleanField')(default=True),
+                      keep_default=False)
 
 
     models = {
@@ -49,11 +49,10 @@ class Migration(SchemaMigration):
             'user_permissions': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'related_name': "u'user_set'", 'blank': 'True', 'to': u"orm['auth.Permission']"}),
             'username': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '30'})
         },
-        u'blog.article': {
+        u'notes.article': {
             'Meta': {'ordering': "('-published_at',)", 'object_name': 'Article'},
             'author': ('django.db.models.fields.related.ForeignKey', [], {'default': 'None', 'to': u"orm['auth.User']", 'null': 'True', 'blank': 'True'}),
             'body': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
-            'category': ('django.db.models.fields.related.ForeignKey', [], {'default': 'None', 'to': u"orm['blog.Category']", 'null': 'True', 'blank': 'True'}),
             'created_at': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'language': ('django.db.models.fields.CharField', [], {'default': "'ru'", 'max_length': '2'}),
@@ -65,13 +64,13 @@ class Migration(SchemaMigration):
             'updated_at': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'views_count': ('django.db.models.fields.PositiveIntegerField', [], {'default': '0'})
         },
-        u'blog.category': {
+        u'notes.category': {
             'Meta': {'object_name': 'Category'},
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             u'level': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
             u'lft': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
-            'parent': ('mptt.fields.TreeForeignKey', [], {'blank': 'True', 'related_name': "'children'", 'null': 'True', 'to': u"orm['blog.Category']"}),
+            'parent': ('mptt.fields.TreeForeignKey', [], {'blank': 'True', 'related_name': "'children'", 'null': 'True', 'to': u"orm['notes.Category']"}),
             u'rght': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
             'slug': ('django.db.models.fields.SlugField', [], {'unique': 'True', 'max_length': '255'}),
             u'tree_id': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'})
@@ -85,4 +84,4 @@ class Migration(SchemaMigration):
         }
     }
 
-    complete_apps = ['blog']
+    complete_apps = ['notes']

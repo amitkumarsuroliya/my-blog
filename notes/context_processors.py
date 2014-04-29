@@ -1,5 +1,5 @@
 from django.conf import settings
-from blog.models import Category
+from notes.models import Category
 
 
 def categories(request):

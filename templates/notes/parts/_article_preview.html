@@ -5,7 +5,7 @@
         <h2>{{ article.title }}</h2>
     </a>
 
-    {% include 'blog/parts/_article_header.html' %}
+    {% include 'notes/parts/_article_header.html' %}
 
     {% if article.preview_image %}
         <img src="{{ article.preview_image }}" alt="" class="image"/>
@@ -13,6 +13,6 @@
 
     {{ article.preview|safe }}
 
-    <a href="{% url 'view_article' article.slug %}">{% trans 'blog.read_more' %}</a>
+    <a href="{% url 'view_article' article.slug %}">{% trans 'notes.read_more' %}</a>
     <div style="clear: both"></div>
 </div>

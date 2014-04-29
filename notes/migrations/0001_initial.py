@@ -9,7 +9,7 @@ class Migration(SchemaMigration):
 
     def forwards(self, orm):
         # Adding model 'Article'
-        db.create_table(u'blog_article', (
+        db.create_table(u'notes_article', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('title', self.gf('django.db.models.fields.CharField')(max_length=255)),
             ('slug', self.gf('django.db.models.fields.SlugField')(max_length=255)),
@@ -21,16 +21,16 @@ class Migration(SchemaMigration):
             ('created_at', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
             ('updated_at', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
         ))
-        db.send_create_signal(u'blog', ['Article'])
+        db.send_create_signal(u'notes', ['Article'])
 
 
     def backwards(self, orm):
         # Deleting model 'Article'
-        db.delete_table(u'blog_article')
+        db.delete_table(u'notes_article')
 
 
     models = {
-        u'blog.article': {
+        u'notes.article': {
             'Meta': {'object_name': 'Article'},
             'body': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'created_at': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
@@ -45,4 +45,4 @@ class Migration(SchemaMigration):
         }
     }
 
-    complete_apps = ['blog']
+    complete_apps = ['notes']

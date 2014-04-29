@@ -1,12 +1,12 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
-from blog.models import Article, Category
+from notes.models import Article, Category
 from utils.blog import is_bot_page_hit
 
 
 def home(request):
     articles = Article.objects.all()
-    return render(request, 'blog/home.html', {'articles': articles})
+    return render(request, 'notes/home.html', {'articles': articles})
 
 
 def view_article(request, slug):
@@ -16,7 +16,7 @@ def view_article(request, slug):
         article.views_count += 1
         article.save()
     relative_articles = Article.objects.filter(category_id=article.category_id).exclude(id=article.id).order_by('?')[:5]
-    return render(request, 'blog/view_article.html', {'article': article, 'relative_articles': relative_articles})
+    return render(request, 'notes/view_article.html', {'article': article, 'relative_articles': relative_articles})
 
 
 def by_category(request, category):
@@ -24,5 +24,5 @@ def by_category(request, category):
     ancestors = category.get_ancestors(include_self=True)
     categories = [c.id for c in category.get_descendants(True)]
     articles = Article.objects.filter(category__in=categories)
-    return render(request, 'blog/category.html',
+    return render(request, 'notes/category.html',
                   {'articles': articles, 'category': category, 'ancestors': ancestors})

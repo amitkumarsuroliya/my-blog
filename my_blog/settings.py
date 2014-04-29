@@ -1,5 +1,5 @@
 """
-Django settings for nihisil project.
+Django settings for my_blog project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/topics/settings/
@@ -38,8 +38,8 @@ INSTALLED_APPS = (
     'south',
     'mptt',
 
-    'nihisil',
-    'blog'
+    'my_blog',
+    'notes'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -62,13 +62,13 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.messages.context_processors.messages",
     'django.core.context_processors.request',
 
-    'blog.context_processors.categories',
-    'blog.context_processors.debug'
+    'notes.context_processors.categories',
+    'notes.context_processors.debug'
 )
 
-ROOT_URLCONF = 'nihisil.urls'
+ROOT_URLCONF = 'my_blog.urls'
 
-WSGI_APPLICATION = 'nihisil.wsgi.application'
+WSGI_APPLICATION = 'my_blog.wsgi.application'
 
 
 # Database

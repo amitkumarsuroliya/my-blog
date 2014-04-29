@@ -1,6 +1,6 @@
 from django.contrib.sitemaps import Sitemap
 from django.core.urlresolvers import reverse
-from blog.models import Article, Category
+from notes.models import Article, Category
 
 
 class ArticleSitemap(Sitemap):
