@@ -63,7 +63,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
 
     'notes.context_processors.categories',
-    'notes.context_processors.debug'
+    'notes.context_processors.debug',
+    'notes.context_processors.settings_variables'
 )
 
 ROOT_URLCONF = 'my_blog.urls'
@@ -114,6 +115,12 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStora
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+GOOGLE_ANALYTICS_ID = ''
+GOOGLE_ANALYTICS_SITE = ''
+YANDEX_METRIKA_ID = ''
+
+TWITTER_ACCOUNT = ''
 
 try:
     from local_settings import *

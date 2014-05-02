@@ -8,3 +8,12 @@ def categories(request):
 
 def debug(request):
     return {'DEBUG': settings.DEBUG}
+
+
+def settings_variables(request):
+    return {
+        'GOOGLE_ANALYTICS_ID': settings.GOOGLE_ANALYTICS_ID,
+        'GOOGLE_ANALYTICS_SITE': settings.GOOGLE_ANALYTICS_SITE,
+        'YANDEX_METRIKA_ID': settings.YANDEX_METRIKA_ID,
+        'TWITTER_ACCOUNT': settings.TWITTER_ACCOUNT,
+    }

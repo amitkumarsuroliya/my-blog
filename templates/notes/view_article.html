@@ -29,13 +29,15 @@
     <meta property="og:description" content="{{ article.preview|striptags }}" />
     <meta property="og:url" content="{{ request.build_absolute_uri }}" />
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@Nihisil">
-    <meta name="twitter:creator" content="@Nihisil">
-    <meta name="twitter:title" content="{{ article.title }}">
-    <meta name="twitter:description" content="{{ article.preview|striptags }}">
-    {% if article.preview_image %}
-        <meta name="twitter:image:src" content="{{ article.preview_image }}">
+    {% if TWITTER_ACCOUNT %}
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@{{ TWITTER_ACCOUNT }}">
+        <meta name="twitter:creator" content="@{{ TWITTER_ACCOUNT }}">
+        <meta name="twitter:title" content="{{ article.title }}">
+        <meta name="twitter:description" content="{{ article.preview|striptags }}">
+        {% if article.preview_image %}
+            <meta name="twitter:image:src" content="{{ article.preview_image }}">
+        {% endif %}
     {% endif %}
 
     <!-- Google+ -->
