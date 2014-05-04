@@ -36,7 +36,7 @@
         <meta name="twitter:title" content="{{ article.title }}">
         <meta name="twitter:description" content="{{ article.preview|striptags }}">
         {% if article.preview_image %}
-            <meta name="twitter:image:src" content="{{ article.preview_image }}">
+            <meta name="twitter:image:src" content="{{ article.preview_image.article.url }}">
         {% endif %}
     {% endif %}
 
@@ -44,7 +44,7 @@
     <meta itemprop="name" content="{{ article.title }}">
     <meta itemprop="description" content="{{ article.preview|striptags }}">
     {% if article.preview_image %}
-        <meta itemprop="image" content="{{ article.preview_image }}">
+        <meta itemprop="image" content="{{ article.preview_image.article.url }}">
     {% endif %}
 {% endblock %}
 

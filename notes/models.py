@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from easy_thumbnails.fields import ThumbnailerImageField
 from mptt.fields import TreeForeignKey
 from mptt.models import MPTTModel
 # from social_publisher.mixins import SocialPublisher
@@ -28,8 +29,7 @@ class Article(models.Model):
 
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True)
-    preview_image = models.CharField(max_length=255, null=True, blank=True)
-    preview_image_small = models.CharField(max_length=255, null=True, blank=True)
+    preview_image = ThumbnailerImageField(upload_to='preview', blank=True, null=True, default=None)
     preview = models.TextField(blank=True, null=True)
     body = models.TextField(blank=True, null=True)
     views_count = models.PositiveIntegerField(default=0)

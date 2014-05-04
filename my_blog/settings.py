@@ -37,6 +37,7 @@ INSTALLED_APPS = (
 
     'south',
     'mptt',
+    'easy_thumbnails',
 
     'my_blog',
     'notes'
@@ -115,6 +116,20 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStora
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+THUMBNAIL_ALIASES = {
+    '': {
+        'article': {'size': (640, 370), 'crop': True},
+        'small_article': {'size': (120, 70), 'crop': True},
+    },
+}
+
+SOUTH_MIGRATION_MODULES = {
+    'easy_thumbnails': 'easy_thumbnails.south_migrations',
+}
+
+THUMBNAIL_SUBDIR = 'thumbs'
+THUMBNAIL_QUALITY = 80
 
 GOOGLE_ANALYTICS_ID = ''
 GOOGLE_ANALYTICS_SITE = ''

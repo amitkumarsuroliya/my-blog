@@ -8,7 +8,7 @@
     {% include 'notes/parts/_article_header.html' %}
 
     {% if article.preview_image %}
-        <img src="{{ article.preview_image }}" alt="" class="image"/>
+        <img src="{{ article.preview_image.article.url }}" alt="" class="image"/>
     {% endif %}
 
     {{ article.preview|safe }}
