@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-29 02:58+0000\n"
+"POT-Creation-Date: 2014-05-04 11:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,32 +16,41 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: templates/base.html:68
+#: templates/base.html:35
 msgid "my_blog.title"
 msgstr "Наш блог"
 
-#: templates/base.html:72 templates/site/about.html:4
-#: templates/site/about.html.py:12
+#: templates/base.html:39 templates/my_blog/about.html:4
+#: templates/my_blog/about.html.py:12
 msgid "my_blog.main_menu.about"
 msgstr "О нас"
 
-#: templates/base.html:74
+#: templates/base.html:41
 msgid "notes.categories"
 msgstr "Категории"
+
+#: templates/my_blog/about.html:4 templates/my_blog/parts/_site_meta.html:5
+#: templates/my_blog/parts/_site_meta.html:13
+#: templates/my_blog/parts/_site_meta.html:19 templates/notes/home.html:4
+msgid "my_blog.about.title"
+msgstr "Блог молодой пары"
+
+#: templates/my_blog/about.html:13
+msgid "about.text"
+msgstr "Мы - молодая пара, которая решилась открывать для себя удивительный мир путешествий. Места, где мы уже были:"
+
+#: templates/my_blog/parts/_site_meta.html:3
+#: templates/my_blog/parts/_site_meta.html:6
+#: templates/my_blog/parts/_site_meta.html:14
+#: templates/my_blog/parts/_site_meta.html:20
+msgid "my_blog.about.description"
+msgstr "Небольшие записки из путешествий и повседневной жизни"
 
 #: templates/notes/category.html:31 templates/notes/home.html:21
 msgid "my_blog.coming_soon"
 msgstr "Пока тут ничего нет"
-
-#: templates/notes/home.html:4 templates/site/about.html:4
-#: templates/site/parts/_site_meta.html:5
-#: templates/site/parts/_site_meta.html:12
-#: templates/site/parts/_site_meta.html:17
-msgid "my_blog.about.title"
-msgstr "Блог о путешествиях"
 
 #: templates/notes/home.html:4
 msgid "my_blog.main_menu.home"
@@ -66,16 +75,3 @@ msgstr "Категория"
 #: templates/notes/parts/_article_preview.html:16
 msgid "notes.read_more"
 msgstr "Читать дальше"
-
-#: templates/site/about.html:13
-msgid "about.text"
-msgstr ""
-"Мы молодая пара которая решилась открывать для себя удивительный мир "
-"путешествий. Места где мы уже были:"
-
-#: templates/site/parts/_site_meta.html:3
-#: templates/site/parts/_site_meta.html:6
-#: templates/site/parts/_site_meta.html:13
-#: templates/site/parts/_site_meta.html:18
-msgid "my_blog.about.description"
-msgstr "Блог о скромных петешествиях молодой пары"
