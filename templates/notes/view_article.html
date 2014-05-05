@@ -4,15 +4,18 @@
 {% block title %}{{ article.title }}{% endblock %}
 
 {% block js %}
-    {% if not DEBUG %}
+    {% if VK_APP_ID %}
         <script type="text/javascript" src="http://vk.com/js/api/openapi.js?105"></script>
+        <script type="text/javascript">
+            VK.init({apiId: {{ VK_APP_ID }}, onlyWidgets: true});
+        </script>
     {% endif %}
+
     <script type="text/javascript" src="{% static 'js/jquery.fancybox.min.js' %}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $(".fancybox").fancybox();
         });
-        VK.init({apiId: 4227415, onlyWidgets: true});
     </script>
 {% endblock %}
 
@@ -73,7 +76,7 @@
         </div>
     </div>
 
-    {% if not DEBUG %}
+    {% if VK_APP_ID %}
         <div class="col-md-12 comments">
             <div id="vk_comments"></div>
             <script type="text/javascript">
