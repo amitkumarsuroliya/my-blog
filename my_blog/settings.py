@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'south',
     'mptt',
     'easy_thumbnails',
+    'icybackup',
 
     'my_blog',
     'notes'
