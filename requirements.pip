@@ -5,4 +5,3 @@ requests==2.2.1
 django-mptt==0.6.0
 easy-thumbnails==2.0.1
 django-icybackup==0.1.1
-python-social-auth==0.1.23

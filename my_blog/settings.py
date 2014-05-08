@@ -39,7 +39,6 @@ INSTALLED_APPS = (
     'mptt',
     'easy_thumbnails',
     'icybackup',
-    'social.apps.django_app.default',
 
     'my_blog',
     'notes'
@@ -65,23 +64,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.messages.context_processors.messages",
     'django.core.context_processors.request',
 
-    'social.apps.django_app.context_processors.backends',
-    'social.apps.django_app.context_processors.login_redirect',
-
     'notes.context_processors.categories',
     'notes.context_processors.debug',
     'notes.context_processors.settings_variables'
-)
-
-AUTHENTICATION_BACKENDS = (
-    'social.backends.open_id.OpenIdAuth',
-    'social.backends.google.GoogleOpenId',
-    'social.backends.google.GoogleOAuth2',
-    'social.backends.google.GoogleOAuth',
-    'social.backends.twitter.TwitterOAuth',
-    'social.backends.yahoo.YahooOpenId',
-
-    'django.contrib.auth.backends.ModelBackend',
 )
 
 ROOT_URLCONF = 'my_blog.urls'
