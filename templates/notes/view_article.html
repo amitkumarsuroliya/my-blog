@@ -4,13 +4,6 @@
 {% block title %}{{ article.title }}{% endblock %}
 
 {% block js %}
-    {% if VK_APP_ID %}
-        <script type="text/javascript" src="http://vk.com/js/api/openapi.js?105"></script>
-        <script type="text/javascript">
-            VK.init({apiId: {{ VK_APP_ID }}, onlyWidgets: true});
-        </script>
-    {% endif %}
-
     <script type="text/javascript" src="{% static 'js/jquery.fancybox.min.js' %}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
@@ -76,11 +69,21 @@
         </div>
     </div>
 
-    {% if VK_APP_ID %}
+    {% if HYPER_COMMENTS_ID %}
         <div class="col-md-12 comments">
-            <div id="vk_comments"></div>
+            <div id="hypercomments_widget"></div>
             <script type="text/javascript">
-                VK.Widgets.Comments("vk_comments", {limit: 15, width: "1024", attach: "*"});
+                _hcwp = window._hcwp || [];
+                _hcwp.push({widget:"Stream", widget_id: {{ HYPER_COMMENTS_ID }}});
+                (function() {
+                    if("HC_LOAD_INIT" in window) return;
+                    HC_LOAD_INIT = true;
+                    var lang = 'ru';
+                    var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+                    hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/15854/"+lang+"/widget.js";
+                    var s = document.getElementsByTagName("script")[0];
+                    s.parentNode.insertBefore(hcc, s.nextSibling);
+                })();
             </script>
         </div>
     {% endif %}

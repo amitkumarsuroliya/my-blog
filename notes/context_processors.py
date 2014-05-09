@@ -16,5 +16,5 @@ def settings_variables(request):
         'GOOGLE_ANALYTICS_SITE': settings.GOOGLE_ANALYTICS_SITE,
         'YANDEX_METRIKA_ID': settings.YANDEX_METRIKA_ID,
         'TWITTER_ACCOUNT': settings.TWITTER_ACCOUNT,
-        'VK_APP_ID': settings.VK_APP_ID,
+        'HYPER_COMMENTS_ID': settings.HYPER_COMMENTS_ID,
     }
